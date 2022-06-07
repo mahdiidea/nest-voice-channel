@@ -4101,9 +4101,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "login",
+  name: 'login',
   components: {
     FormBuilder: _components_smartable_formBuilder__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -12502,7 +12540,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg[data-v-3d73791f] {\n    width: 100%;\n    height: 100%;\n    padding: 0;\n    margin: 0;\n    overflow-x: hidden;\n    background: #12c2e9; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg[data-v-3d73791f] {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  overflow-x: hidden;\n  background: #12c2e9; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(\n    to right,\n    #f64f59,\n    #c471ed,\n    #12c2e9\n  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19619,7 +19657,7 @@ var render = function () {
           _c(
             "v-expansion-panels",
             {
-              attrs: { mandatory: "", focusable: "" },
+              attrs: { mandatory: "" },
               model: {
                 value: _vm.expansion,
                 callback: function ($$v) {
@@ -19632,15 +19670,11 @@ var render = function () {
               _c(
                 "v-expansion-panel",
                 [
-                  _vm.expansion !== 1
-                    ? _c("v-expansion-panel-header", {
-                        domProps: {
-                          textContent: _vm._s(
-                            _vm.$t("text.create_new_account")
-                          ),
-                        },
-                      })
-                    : _vm._e(),
+                  _c("v-expansion-panel-header", {
+                    domProps: {
+                      textContent: _vm._s(_vm.$t("text.login_to_your_account")),
+                    },
+                  }),
                   _vm._v(" "),
                   _c(
                     "v-expansion-panel-content",
@@ -19728,13 +19762,11 @@ var render = function () {
               _c(
                 "v-expansion-panel",
                 [
-                  _vm.expansion !== 2
-                    ? _c("v-expansion-panel-header", {
-                        domProps: {
-                          textContent: _vm._s(_vm.$t("text.create_an_one")),
-                        },
-                      })
-                    : _vm._e(),
+                  _c("v-expansion-panel-header", {
+                    domProps: {
+                      textContent: _vm._s(_vm.$t("text.create_an_one")),
+                    },
+                  }),
                   _vm._v(" "),
                   _c(
                     "v-expansion-panel-content",
