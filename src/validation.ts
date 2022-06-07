@@ -1,4 +1,4 @@
-import { PipeTransform, ArgumentMetadata, BadRequestException } from '@nestjs/common'
+import { PipeTransform, ArgumentMetadata, BadRequestException, UnprocessableEntityException } from '@nestjs/common'
 import { validate } from 'class-validator'
 import { plainToClass } from 'class-transformer'
 
@@ -21,7 +21,7 @@ export class ValidationPipe implements PipeTransform<any> {
                         });
                   }
 
-                  throw new BadRequestException({
+                  throw new UnprocessableEntityException({
                         message: raw.length > 0 ? (raw.length > 1 ? `${raw[0]}. (and ${raw.length - 1} more ${raw.length == 2 ? 'error' : 'errors'})` : raw[0]) : 'Bad request',
                         errors: array
                   })

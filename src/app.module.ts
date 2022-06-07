@@ -1,14 +1,20 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthController } from './auth/auth.controller';
-import { UserService } from './user/user.service';
-import { User, UserSchema } from './schemas/user.schema';
+import { User, UserSchema } from './user/user.schema';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { VoiceModule } from './voice/voice.module';
 import { VoiceGateway } from './voice/voice.gateway';
+
 import { UserEmailValidation } from './user/user.email.validation';
+
+import { AppService } from './app.service';
+import { VoiceModule } from './voice/voice.module';
+import { UserService } from './user/user.service';
+import { AuthService } from './auth/auth.service';
+
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -27,8 +33,10 @@ import { UserEmailValidation } from './user/user.email.validation';
     }),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     VoiceModule,
-  ],
+    UserModule,
+    AuthModule
+    ],
   controllers: [AppController, AuthController],
-  providers: [AppService, UserService, VoiceGateway, UserEmailValidation],
+  providers: [AppService, UserService, AuthService, VoiceGateway, UserEmailValidation],
 })
-export class AppModule {}
+export class AppModule { }

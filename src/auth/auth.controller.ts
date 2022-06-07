@@ -7,14 +7,15 @@ import {
   ValidationPipe,
   Body,
 } from '@nestjs/common';
+import { User } from '../user/user.schema';
 import { Response } from 'express';
 import { UserService } from '../user/user.service';
 import { RegisterDto, LoginDto } from './auth.dto';
-import { User } from '../schemas/user.schema';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService, private authService: AuthService) { }
 
   @Post('login')
   @UsePipes(new ValidationPipe({ transform: true }))
@@ -25,12 +26,15 @@ export class AuthController {
   @Post('register')
   @UsePipes(new ValidationPipe({ transform: true }))
   async register(@Body() registerDto: RegisterDto) {
+
     let user = new User();
     user.name = registerDto.name;
     user.email = registerDto.email;
     user.password = registerDto.password;
-
     const userModel = await this.userService.create(user);
-    return userModel;
+    const { password, ...result } = userModel['_doc'];
+    
+    return result;
+
   }
 }

@@ -4152,8 +4152,7 @@ __webpack_require__.r(__webpack_exports__);
         fields: null,
         object: {
           email: '',
-          password: '',
-          action: 'login'
+          password: ''
         }
       },
       register: {
@@ -4161,8 +4160,7 @@ __webpack_require__.r(__webpack_exports__);
         object: {
           name: '',
           email: '',
-          password: '',
-          action: 'register'
+          password: ''
         }
       }
     };
@@ -19781,7 +19779,7 @@ var render = function () {
                           "primary-key-icon": "mdi-check",
                           "primary-key-text": _vm.$t("text.register"),
                           rounded: "",
-                          uri: "auth",
+                          uri: "auth/register",
                           fields: _vm.register.fields,
                           object: _vm.register.object,
                           outlined: "",

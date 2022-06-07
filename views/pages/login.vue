@@ -59,7 +59,7 @@
               primary-key-icon="mdi-check"
               :primary-key-text="$t('text.register')"
               rounded
-              uri="auth"
+              uri="auth/register"
               :fields="register.fields"
               :object="register.object"
               outlined
@@ -103,8 +103,7 @@ export default {
       fields: null,
       object: {
         email: '',
-        password: '',
-        action: 'login',
+        password: ''
       },
     },
     register: {
@@ -112,8 +111,7 @@ export default {
       object: {
         name: '',
         email: '',
-        password: '',
-        action: 'register',
+        password: ''
       },
     },
   }),

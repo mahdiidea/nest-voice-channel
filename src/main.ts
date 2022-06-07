@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from './validation';
 
 import { useContainer } from 'class-validator';
-// import { BadRequestException, ValidationPipe } from '@nestjs/common';
+import { RequestMethod } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -30,13 +30,8 @@ async function bootstrap() {
     templates: join(__dirname, '..', 'views'),
   });
 
+  app.setGlobalPrefix('api', { exclude: [{ path: '*', method: RequestMethod.GET }]});
   app.useGlobalPipes(new ValidationPipe());
-  // app.useGlobalPipes(
-  //   new ValidationPipe({
-  //     exceptionFactory: errors => new BadRequestException(errors), // TODO: Use graphql errors instead
-  //     forbidUnknownValues: true,
-  //   }),
-  // );
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
   const appPort = configService.get<number>('APP_PORT', 3000);
